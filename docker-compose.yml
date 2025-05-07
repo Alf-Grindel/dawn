@@ -1,0 +1,14 @@
+services:
+  db:
+    container_name: "dawnDB"
+    image: mysql:8
+    volumes:
+      - "./database/mysql-data:/var/lib/mysql:rw"
+    ports:
+      - "8140:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "Smy0814."
+      MYSQL_DATABASE: "dawn"
+      MYSQL_USER: "dawn0814"
+      MYSQL_PASSWORD: "dawn0814"
+    restart: unless-stopped

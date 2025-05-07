@@ -1,0 +1,9 @@
+server:
+  version: 1.0.0
+  name: dawn
+
+mysql:
+  addr: 127.0.0.1:8140
+  database: dawn
+  username: dawn0814
+  password: dawn0814
