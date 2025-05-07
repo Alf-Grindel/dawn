@@ -10,8 +10,9 @@ import (
 )
 
 type Application struct {
-	Logger      *log.Logger
-	UserHandler *api.UserHandler
+	Logger       *log.Logger
+	UserHandler  *api.UserHandler
+	AdminHandler *api.AdminHandler
 }
 
 func NewApplication() (*Application, error) {
@@ -21,10 +22,12 @@ func NewApplication() (*Application, error) {
 	userDal := user_dal.NewUserDal(db, snowflake)
 
 	userHandler := api.NewUserHandler(userDal, logger)
+	adminHandler := api.NewAdminHandler(userDal, logger)
 
 	app := &Application{
-		Logger:      logger,
-		UserHandler: userHandler,
+		Logger:       logger,
+		UserHandler:  userHandler,
+		AdminHandler: adminHandler,
 	}
 
 	return app, nil

@@ -6,7 +6,7 @@ import (
 	"github.com/alf-grindel/dawn/conf"
 	. "github.com/alf-grindel/dawn/internal/app"
 	"github.com/alf-grindel/dawn/internal/dal"
-	"github.com/alf-grindel/dawn/internal/dal/user_dal"
+	"github.com/alf-grindel/dawn/internal/model/data"
 	"github.com/alf-grindel/dawn/internal/routes"
 	"github.com/gorilla/handlers"
 	"net/http"
@@ -18,7 +18,7 @@ import (
 func init() {
 	conf.Init()
 	dal.Init()
-	gob.Register(user_dal.User{})
+	gob.Register(data.User{})
 }
 
 func main() {

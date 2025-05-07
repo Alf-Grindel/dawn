@@ -6,7 +6,7 @@ import (
 )
 
 func (s *UserService) Logout(rw http.ResponseWriter, r *http.Request) bool {
-	session, _ := store.Get(r, constants.UserLoginState)
+	session, _ := constants.Store.Get(r, constants.UserLoginState)
 	if session.Values["login"] != true {
 		s.logger.Println("service.logout: no login user")
 		return false
